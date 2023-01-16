@@ -15,7 +15,7 @@
 		8FB6349B2975C26000977C4F /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 8FB6349A2975C26000977C4F /* FirebaseFirestore */; };
 		8FB6349D2975C26000977C4F /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8FB6349C2975C26000977C4F /* FirebaseFirestoreSwift */; };
 		8FB6349F2975C26000977C4F /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 8FB6349E2975C26000977C4F /* FirebaseStorage */; };
-		8FB634A12975C42400977C4F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8FB634A02975C42300977C4F /* GoogleService-Info.plist */; };
+		8FB634A52975DEA700977C4F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8FB634A42975DEA700977C4F /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +25,7 @@
 		8FB6348C2975BFEE00977C4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8FB6348F2975BFEE00977C4F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8FB634962975C07400977C4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		8FB634A02975C42300977C4F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8FB634A42975DEA700977C4F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +66,7 @@
 				8FB634882975BFED00977C4F /* SnacktackularApp.swift */,
 				8FB6348A2975BFED00977C4F /* LoginView.swift */,
 				8FB6348C2975BFEE00977C4F /* Assets.xcassets */,
-				8FB634A02975C42300977C4F /* GoogleService-Info.plist */,
+				8FB634A42975DEA700977C4F /* GoogleService-Info.plist */,
 				8FB6348E2975BFEE00977C4F /* Preview Content */,
 			);
 			path = Snacktackular;
@@ -149,7 +149,7 @@
 			files = (
 				8FB634902975BFEE00977C4F /* Preview Assets.xcassets in Resources */,
 				8FB6348D2975BFEE00977C4F /* Assets.xcassets in Resources */,
-				8FB634A12975C42400977C4F /* GoogleService-Info.plist in Resources */,
+				8FB634A52975DEA700977C4F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
