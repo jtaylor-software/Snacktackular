@@ -20,10 +20,12 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct SnacktackularApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    @StateObject var spotVM = SpotViewModel()
     
     var body: some Scene {
         WindowGroup {
             LoginView()
+                .environmentObject(spotVM)
         }
     }
 }
