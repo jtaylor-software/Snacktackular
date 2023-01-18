@@ -1,5 +1,5 @@
 //
-//  SpotViewModek.swift
+//  SpotViewModel.swift
 //  Snacktackular
 //
 //  Created by Jeremy Taylor on 1/17/23.
@@ -25,7 +25,7 @@ class SpotViewModel: ObservableObject {
             }
         } else { // no id? Then this must be a new spot to add
             do {
-                try await db.collection("spots").addDocument(data: spot.dictionary)
+                _ = try await db.collection("spots").addDocument(data: spot.dictionary)
                 print("🐣 Data added successfully!")
                 return true
             } catch {
