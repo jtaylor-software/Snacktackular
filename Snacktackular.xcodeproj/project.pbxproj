@@ -20,6 +20,10 @@
 		8FB6349F2975C26000977C4F /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 8FB6349E2975C26000977C4F /* FirebaseStorage */; };
 		8FB634A52975DEA700977C4F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8FB634A42975DEA700977C4F /* GoogleService-Info.plist */; };
 		8FB634AA2975E04900977C4F /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB634A92975E04900977C4F /* ListView.swift */; };
+		8FF2E74D297DB8FA0049E8C4 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF2E749297DB8FA0049E8C4 /* Place.swift */; };
+		8FF2E74E297DB8FA0049E8C4 /* PlaceLookupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF2E74A297DB8FA0049E8C4 /* PlaceLookupView.swift */; };
+		8FF2E74F297DB8FA0049E8C4 /* PlaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF2E74B297DB8FA0049E8C4 /* PlaceViewModel.swift */; };
+		8FF2E750297DB8FA0049E8C4 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF2E74C297DB8FA0049E8C4 /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +38,10 @@
 		8FB634962975C07400977C4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8FB634A42975DEA700977C4F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8FB634A92975E04900977C4F /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		8FF2E749297DB8FA0049E8C4 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		8FF2E74A297DB8FA0049E8C4 /* PlaceLookupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceLookupView.swift; sourceTree = "<group>"; };
+		8FF2E74B297DB8FA0049E8C4 /* PlaceViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceViewModel.swift; sourceTree = "<group>"; };
+		8FF2E74C297DB8FA0049E8C4 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,10 +81,14 @@
 				8FB634962975C07400977C4F /* Info.plist */,
 				8FB634882975BFED00977C4F /* SnacktackularApp.swift */,
 				8F7AEEAA2976FC9B00199392 /* Spot.swift */,
+				8FF2E749297DB8FA0049E8C4 /* Place.swift */,
 				8F7AEEAE297701DD00199392 /* SpotViewModel.swift */,
+				8FF2E74C297DB8FA0049E8C4 /* LocationManager.swift */,
+				8FF2E74B297DB8FA0049E8C4 /* PlaceViewModel.swift */,
 				8FB6348A2975BFED00977C4F /* LoginView.swift */,
 				8FB634A92975E04900977C4F /* ListView.swift */,
 				8F7AEEAC2976FE2700199392 /* SpotDetailView.swift */,
+				8FF2E74A297DB8FA0049E8C4 /* PlaceLookupView.swift */,
 				8FB6348C2975BFEE00977C4F /* Assets.xcassets */,
 				8FB634A42975DEA700977C4F /* GoogleService-Info.plist */,
 				8FB6348E2975BFEE00977C4F /* Preview Content */,
@@ -173,10 +185,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F7AEEAD2976FE2700199392 /* SpotDetailView.swift in Sources */,
+				8FF2E74F297DB8FA0049E8C4 /* PlaceViewModel.swift in Sources */,
+				8FF2E750297DB8FA0049E8C4 /* LocationManager.swift in Sources */,
 				8FB6348B2975BFED00977C4F /* LoginView.swift in Sources */,
+				8FF2E74E297DB8FA0049E8C4 /* PlaceLookupView.swift in Sources */,
 				8FB634892975BFED00977C4F /* SnacktackularApp.swift in Sources */,
 				8FB634AA2975E04900977C4F /* ListView.swift in Sources */,
 				8F7AEEAB2976FC9B00199392 /* Spot.swift in Sources */,
+				8FF2E74D297DB8FA0049E8C4 /* Place.swift in Sources */,
 				8F7AEEAF297701DD00199392 /* SpotViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,6 +325,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Snacktackular/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app requires access to the device's location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app requires access to the device's location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -337,6 +355,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Snacktackular/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app requires access to the device's location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app requires access to the device's location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
