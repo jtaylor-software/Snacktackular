@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F6B8E75298ED977008B4A54 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6B8E74298ED977008B4A54 /* Review.swift */; };
+		8F6B8E77298EDBC2008B4A54 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6B8E76298EDBC2008B4A54 /* ReviewView.swift */; };
+		8F6B8E79298EE514008B4A54 /* StarsSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6B8E78298EE514008B4A54 /* StarsSelectionView.swift */; };
 		8F7AEEAB2976FC9B00199392 /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7AEEAA2976FC9B00199392 /* Spot.swift */; };
 		8F7AEEAD2976FE2700199392 /* SpotDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7AEEAC2976FE2700199392 /* SpotDetailView.swift */; };
 		8F7AEEAF297701DD00199392 /* SpotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7AEEAE297701DD00199392 /* SpotViewModel.swift */; };
@@ -27,6 +30,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8F6B8E74298ED977008B4A54 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		8F6B8E76298EDBC2008B4A54 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
+		8F6B8E78298EE514008B4A54 /* StarsSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarsSelectionView.swift; sourceTree = "<group>"; };
 		8F7AEEAA2976FC9B00199392 /* Spot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spot.swift; sourceTree = "<group>"; };
 		8F7AEEAC2976FE2700199392 /* SpotDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotDetailView.swift; sourceTree = "<group>"; };
 		8F7AEEAE297701DD00199392 /* SpotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotViewModel.swift; sourceTree = "<group>"; };
@@ -59,6 +65,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8F6B8E71298ED8F9008B4A54 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8F7AEEAA2976FC9B00199392 /* Spot.swift */,
+				8F6B8E74298ED977008B4A54 /* Review.swift */,
+				8FF2E749297DB8FA0049E8C4 /* Place.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8F6B8E72298ED916008B4A54 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				8F7AEEAE297701DD00199392 /* SpotViewModel.swift */,
+				8FF2E74C297DB8FA0049E8C4 /* LocationManager.swift */,
+				8FF2E74B297DB8FA0049E8C4 /* PlaceViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		8F6B8E73298ED94D008B4A54 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8FB6348A2975BFED00977C4F /* LoginView.swift */,
+				8FB634A92975E04900977C4F /* ListView.swift */,
+				8F7AEEAC2976FE2700199392 /* SpotDetailView.swift */,
+				8FF2E74A297DB8FA0049E8C4 /* PlaceLookupView.swift */,
+				8F6B8E76298EDBC2008B4A54 /* ReviewView.swift */,
+				8F6B8E78298EE514008B4A54 /* StarsSelectionView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		8FB6347C2975BFED00977C4F = {
 			isa = PBXGroup;
 			children = (
@@ -80,15 +119,9 @@
 			children = (
 				8FB634962975C07400977C4F /* Info.plist */,
 				8FB634882975BFED00977C4F /* SnacktackularApp.swift */,
-				8F7AEEAA2976FC9B00199392 /* Spot.swift */,
-				8FF2E749297DB8FA0049E8C4 /* Place.swift */,
-				8F7AEEAE297701DD00199392 /* SpotViewModel.swift */,
-				8FF2E74C297DB8FA0049E8C4 /* LocationManager.swift */,
-				8FF2E74B297DB8FA0049E8C4 /* PlaceViewModel.swift */,
-				8FB6348A2975BFED00977C4F /* LoginView.swift */,
-				8FB634A92975E04900977C4F /* ListView.swift */,
-				8F7AEEAC2976FE2700199392 /* SpotDetailView.swift */,
-				8FF2E74A297DB8FA0049E8C4 /* PlaceLookupView.swift */,
+				8F6B8E71298ED8F9008B4A54 /* Models */,
+				8F6B8E72298ED916008B4A54 /* ViewModels */,
+				8F6B8E73298ED94D008B4A54 /* Views */,
 				8FB6348C2975BFEE00977C4F /* Assets.xcassets */,
 				8FB634A42975DEA700977C4F /* GoogleService-Info.plist */,
 				8FB6348E2975BFEE00977C4F /* Preview Content */,
@@ -187,9 +220,12 @@
 				8F7AEEAD2976FE2700199392 /* SpotDetailView.swift in Sources */,
 				8FF2E74F297DB8FA0049E8C4 /* PlaceViewModel.swift in Sources */,
 				8FF2E750297DB8FA0049E8C4 /* LocationManager.swift in Sources */,
+				8F6B8E79298EE514008B4A54 /* StarsSelectionView.swift in Sources */,
 				8FB6348B2975BFED00977C4F /* LoginView.swift in Sources */,
+				8F6B8E77298EDBC2008B4A54 /* ReviewView.swift in Sources */,
 				8FF2E74E297DB8FA0049E8C4 /* PlaceLookupView.swift in Sources */,
 				8FB634892975BFED00977C4F /* SnacktackularApp.swift in Sources */,
+				8F6B8E75298ED977008B4A54 /* Review.swift in Sources */,
 				8FB634AA2975E04900977C4F /* ListView.swift in Sources */,
 				8F7AEEAB2976FC9B00199392 /* Spot.swift in Sources */,
 				8FF2E74D297DB8FA0049E8C4 /* Place.swift in Sources */,
