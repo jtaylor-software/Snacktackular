@@ -23,6 +23,8 @@ struct SpotDetailView: View {
     @State var spot: Spot
     @State private var showPlaceLookupSheet = false
     @State private var showReviewViewSheet = false
+    @State private var showSaveAlert = false
+    @State private var showingAsSheet = false
     @State private var mapRegion = MKCoordinateRegion()
     @State private var annotations: [Annotation] = []
     @Environment(\.dismiss) private var dismiss
@@ -75,7 +77,11 @@ struct SpotDetailView: View {
                             .foregroundColor(Color("SnackColor"))
                         Spacer()
                         Button("Rate It") {
-                            showReviewViewSheet.toggle()
+                            if spot.id == nil {
+                                showSaveAlert.toggle()
+                            } else {
+                                showReviewViewSheet.toggle()
+                            }
                         }
                         .buttonStyle(.borderedProminent)
                         .bold()
@@ -90,9 +96,11 @@ struct SpotDetailView: View {
             Spacer()
         }
         .onAppear {
-            if !previewRunning {
+            if !previewRunning && spot.id != nil {
                 $reviews.path = "spots/\(spot.id ?? "")/reviews"
                 print("reviews.path = \($reviews.path)")
+            } else {
+                showingAsSheet = true
             }
             
             if spot.id != nil { // if we have a spot, center map on the spot
@@ -108,36 +116,44 @@ struct SpotDetailView: View {
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(spot.id == nil)
         .toolbar {
-            if spot.id == nil { // New spot, so show Cancel/Save buttons
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") {
-                        dismiss()
-                    }
-                }
-                
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Save") {
-                        Task {
-                            let success = await spotVM.saveSpot(spot: spot)
-                            if success {
-                                dismiss()
-                            } else {
-                                print("😡 DANG! Error saving spot!")
-                            }
+            if showingAsSheet {
+                if spot.id == nil && showingAsSheet { // New spot, so show Cancel/Save buttons
+                    ToolbarItem(placement: .cancellationAction) {
+                        Button("Cancel") {
+                            dismiss()
                         }
-                        dismiss()
                     }
-                }
-                ToolbarItemGroup(placement: .bottomBar) {
-                    Spacer()
                     
-                    Button {
-                        showPlaceLookupSheet.toggle()
-                    } label: {
-                        Image(systemName: "magnifyingglass")
-                        Text("Lookup Place")
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button("Save") {
+                            Task {
+                                let success = await spotVM.saveSpot(spot: spot)
+                                if success {
+                                    dismiss()
+                                } else {
+                                    print("😡 DANG! Error saving spot!")
+                                }
+                            }
+                            dismiss()
+                        }
                     }
-
+                    ToolbarItemGroup(placement: .bottomBar) {
+                        Spacer()
+                        
+                        Button {
+                            showPlaceLookupSheet.toggle()
+                        } label: {
+                            Image(systemName: "magnifyingglass")
+                            Text("Lookup Place")
+                        }
+                        
+                    }
+                } else if showingAsSheet && spot.id != nil {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button("Done") {
+                            dismiss()
+                        }
+                    }
                 }
             }
         }
@@ -150,6 +166,24 @@ struct SpotDetailView: View {
             }
             
         }
+        .alert("Cannot Rate Spot Unless It Is Saved", isPresented: $showSaveAlert) {
+            Button("Cancel", role: .cancel) {}
+            Button("Save", role: .none) {
+                Task {
+                    let success = await spotVM.saveSpot(spot: spot)
+                    spot = spotVM.spot
+                    if success {
+                        $reviews.path = "spots/\(spot.id ?? "")/reviews"
+                        showReviewViewSheet.toggle()
+                    } else {
+                       print("😡 Dang! Error saving spot!")
+                    }
+                }
+            }
+        } message: {
+            Text("Would you like to save this spot first so you can enter a review?")
+        }
+
     }
 }
 
