@@ -7,6 +7,7 @@
 
 import SwiftUI
 import MapKit
+import FirebaseFirestoreSwift
 
 struct SpotDetailView: View {
     struct Annotation: Identifiable {
@@ -18,12 +19,15 @@ struct SpotDetailView: View {
     
     @EnvironmentObject var spotVM: SpotViewModel
     @EnvironmentObject var locationManager: LocationManager
+    @FirestoreQuery(collectionPath: "spots") var reviews: [Review]
     @State var spot: Spot
     @State private var showPlaceLookupSheet = false
+    @State private var showReviewViewSheet = false
     @State private var mapRegion = MKCoordinateRegion()
     @State private var annotations: [Annotation] = []
     @Environment(\.dismiss) private var dismiss
     let regionSize = 500.0 // meters
+    var previewRunning = false
     
     var body: some View {
         VStack {
@@ -44,14 +48,53 @@ struct SpotDetailView: View {
             Map(coordinateRegion: $mapRegion, showsUserLocation: true, annotationItems: annotations) { annotation in
                 MapMarker(coordinate: annotation.coordinate)
             }
+            .frame(height: 250)
             .onChange(of: spot) { _ in
                 annotations = [Annotation(name: spot.name, address: spot.address, coordinate: spot.coordinate)]
                 mapRegion.center = spot.coordinate
             }
             
+            List {
+                Section {
+                    ForEach(reviews) { review in
+                        NavigationLink {
+                            ReviewView(spot: spot, review: review)
+                        } label: {
+                            Text(review.title)
+                        }
+
+                    }
+                } header: {
+                    HStack {
+                        Text("Avg. Rating")
+                            .font(.title2)
+                            .bold()
+                        Text("4.5") //TODO: Change to a computed property
+                            .font(.title)
+                            .fontWeight(.black)
+                            .foregroundColor(Color("SnackColor"))
+                        Spacer()
+                        Button("Rate It") {
+                            showReviewViewSheet.toggle()
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .bold()
+                        .tint(Color("SnackColor"))
+                    }
+                }
+
+            }
+            .headerProminence(.increased)
+            .listStyle(.plain)
+            
             Spacer()
         }
         .onAppear {
+            if !previewRunning {
+                $reviews.path = "spots/\(spot.id ?? "")/reviews"
+                print("reviews.path = \($reviews.path)")
+            }
+            
             if spot.id != nil { // if we have a spot, center map on the spot
                 mapRegion = MKCoordinateRegion(center: spot.coordinate, latitudinalMeters: regionSize, longitudinalMeters: regionSize)
             } else { // otherwise center the map on the device location
@@ -101,13 +144,19 @@ struct SpotDetailView: View {
         .sheet(isPresented: $showPlaceLookupSheet) {
             PlaceLookupView(spot: $spot)
         }
+        .sheet(isPresented: $showReviewViewSheet) {
+            NavigationStack {
+                ReviewView(spot: spot, review: Review())
+            }
+            
+        }
     }
 }
 
 struct SpotDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            SpotDetailView(spot: Spot())
+            SpotDetailView(spot: Spot(), previewRunning: true)
                 .environmentObject(SpotViewModel())
                 .environmentObject(LocationManager())
         }
