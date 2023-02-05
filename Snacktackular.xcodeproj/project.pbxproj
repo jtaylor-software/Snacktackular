@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8F305E472990295A00FC66D5 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F305E462990295A00FC66D5 /* Photo.swift */; };
 		8F305E492990354400FC66D5 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F305E482990354400FC66D5 /* PhotoView.swift */; };
+		8F305E4B299058CE00FC66D5 /* SpotDetailPhotoScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F305E4A299058CD00FC66D5 /* SpotDetailPhotoScrollView.swift */; };
 		8F6B8E75298ED977008B4A54 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6B8E74298ED977008B4A54 /* Review.swift */; };
 		8F6B8E77298EDBC2008B4A54 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6B8E76298EDBC2008B4A54 /* ReviewView.swift */; };
 		8F6B8E79298EE514008B4A54 /* StarsSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6B8E78298EE514008B4A54 /* StarsSelectionView.swift */; };
@@ -36,6 +37,7 @@
 /* Begin PBXFileReference section */
 		8F305E462990295A00FC66D5 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		8F305E482990354400FC66D5 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
+		8F305E4A299058CD00FC66D5 /* SpotDetailPhotoScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotDetailPhotoScrollView.swift; sourceTree = "<group>"; };
 		8F6B8E74298ED977008B4A54 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		8F6B8E76298EDBC2008B4A54 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
 		8F6B8E78298EE514008B4A54 /* StarsSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarsSelectionView.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				8FB6348A2975BFED00977C4F /* LoginView.swift */,
 				8FB634A92975E04900977C4F /* ListView.swift */,
 				8F7AEEAC2976FE2700199392 /* SpotDetailView.swift */,
+				8F305E4A299058CD00FC66D5 /* SpotDetailPhotoScrollView.swift */,
 				8FC3EAB5298F126F00EC8547 /* SpotReviewRowView.swift */,
 				8FF2E74A297DB8FA0049E8C4 /* PlaceLookupView.swift */,
 				8F6B8E76298EDBC2008B4A54 /* ReviewView.swift */,
@@ -246,6 +249,7 @@
 				8F7AEEAB2976FC9B00199392 /* Spot.swift in Sources */,
 				8FF2E74D297DB8FA0049E8C4 /* Place.swift in Sources */,
 				8F7AEEAF297701DD00199392 /* SpotViewModel.swift in Sources */,
+				8F305E4B299058CE00FC66D5 /* SpotDetailPhotoScrollView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
