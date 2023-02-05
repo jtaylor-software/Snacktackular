@@ -11,6 +11,10 @@ import FirebaseFirestoreSwift
 import PhotosUI
 
 struct SpotDetailView: View {
+    enum ButtonPressed {
+        case review, photo
+    }
+    
     struct Annotation: Identifiable {
         let id = UUID().uuidString
         var name: String
@@ -24,8 +28,11 @@ struct SpotDetailView: View {
     @State var spot: Spot
     @State private var showPlaceLookupSheet = false
     @State private var showReviewViewSheet = false
+    @State private var showPhotoSheet = false
     @State private var showSaveAlert = false
     @State private var showingAsSheet = false
+    @State private var buttonPressed = ButtonPressed.review
+    @State private var uiImageSelected = UIImage()
     @State private var mapRegion = MKCoordinateRegion()
     @State private var annotations: [Annotation] = []
     @State private var selectedPhoto: PhotosPickerItem?
@@ -91,7 +98,14 @@ struct SpotDetailView: View {
                             do {
                                 if let data = try await newValue?.loadTransferable(type: Data.self) {
                                     if let uiImage = UIImage(data: data) {
+                                        uiImageSelected = uiImage
                                         print("📸 Successfully selected image!")
+                                        buttonPressed = .photo
+                                        if spot.id == nil {
+                                            showSaveAlert.toggle()
+                                        } else {
+                                            showPhotoSheet.toggle()
+                                        }
                                     }
                                 }
                             } catch {
@@ -100,6 +114,7 @@ struct SpotDetailView: View {
                         }
                     }
                     Button(action: {
+                        buttonPressed = .review
                         if spot.id == nil {
                             showSaveAlert.toggle()
                         } else {
@@ -210,6 +225,11 @@ struct SpotDetailView: View {
             }
             
         }
+        .sheet(isPresented: $showPhotoSheet) {
+            NavigationStack {
+                PhotoView(uiImage: uiImageSelected, spot: spot)
+            }
+        }
         .alert("Cannot Rate Spot Unless It Is Saved", isPresented: $showSaveAlert) {
             Button("Cancel", role: .cancel) {}
             Button("Save", role: .none) {
@@ -218,7 +238,13 @@ struct SpotDetailView: View {
                     spot = spotVM.spot
                     if success {
                         $reviews.path = "spots/\(spot.id ?? "")/reviews"
-                        showReviewViewSheet.toggle()
+                        //$photos.path = "spots/\(spot.id ?? "")/photos"
+                        switch buttonPressed {
+                        case .review:
+                            showReviewViewSheet.toggle()
+                        case .photo:
+                            showPhotoSheet.toggle()
+                        }
                     } else {
                         print("😡 Dang! Error saving spot!")
                     }
