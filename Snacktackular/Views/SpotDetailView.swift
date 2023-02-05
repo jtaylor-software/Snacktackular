@@ -27,6 +27,7 @@ struct SpotDetailView: View {
     @FirestoreQuery(collectionPath: "spots") var reviews: [Review]
     @FirestoreQuery(collectionPath: "spots") var photos: [Photo]
     @State var spot: Spot
+    @State private var newPhoto = Photo()
     @State private var showPlaceLookupSheet = false
     @State private var showReviewViewSheet = false
     @State private var showPhotoSheet = false
@@ -103,6 +104,7 @@ struct SpotDetailView: View {
                                     if let uiImage = UIImage(data: data) {
                                         uiImageSelected = uiImage
                                         print("📸 Successfully selected image!")
+                                        newPhoto = Photo() // Clears out the contents if you add more than 1 photo in a row for this spot
                                         buttonPressed = .photo
                                         if spot.id == nil {
                                             showSaveAlert.toggle()
@@ -233,7 +235,7 @@ struct SpotDetailView: View {
         }
         .sheet(isPresented: $showPhotoSheet) {
             NavigationStack {
-                PhotoView(uiImage: uiImageSelected, spot: spot)
+                PhotoView(photo: $newPhoto, uiImage: uiImageSelected, spot: spot)
             }
         }
         .alert("Cannot Rate Spot Unless It Is Saved", isPresented: $showSaveAlert) {

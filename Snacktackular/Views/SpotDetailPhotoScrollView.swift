@@ -14,6 +14,9 @@ struct SpotDetailPhotoScrollView: View {
 //    }
 //
 //    let photos = [FakePhoto(), FakePhoto(),FakePhoto(),FakePhoto(),FakePhoto(),FakePhoto(),FakePhoto(),FakePhoto(),]
+    @State private var showPhotoViewerView = false
+    @State private var uiImage = UIImage()
+    @State private var selectedPhoto = Photo()
     var photos: [Photo]
     var spot: Spot
     
@@ -29,8 +32,15 @@ struct SpotDetailPhotoScrollView: View {
                             .scaledToFill()
                             .frame(width: 80, height: 80)
                             .clipped()
+                            .onTapGesture {
+                                let renderer = ImageRenderer(content: image)
+                                selectedPhoto = photo
+                                uiImage = renderer.uiImage ?? UIImage()
+                                showPhotoViewerView.toggle()
+                            }
                     } placeholder: {
                         ProgressView()
+                            .frame(width: 80, height: 80)
                     }
 
                 }
@@ -38,6 +48,9 @@ struct SpotDetailPhotoScrollView: View {
         }
         .frame(height: 80)
         .padding(.horizontal, 4)
+        .sheet(isPresented: $showPhotoViewerView) {
+            PhotoView(photo: $selectedPhoto, uiImage: uiImage, spot: spot)
+        }
     }
 }
 
