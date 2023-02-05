@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F305E472990295A00FC66D5 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F305E462990295A00FC66D5 /* Photo.swift */; };
 		8F6B8E75298ED977008B4A54 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6B8E74298ED977008B4A54 /* Review.swift */; };
 		8F6B8E77298EDBC2008B4A54 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6B8E76298EDBC2008B4A54 /* ReviewView.swift */; };
 		8F6B8E79298EE514008B4A54 /* StarsSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6B8E78298EE514008B4A54 /* StarsSelectionView.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8F305E462990295A00FC66D5 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		8F6B8E74298ED977008B4A54 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		8F6B8E76298EDBC2008B4A54 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
 		8F6B8E78298EE514008B4A54 /* StarsSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarsSelectionView.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				8F7AEEAA2976FC9B00199392 /* Spot.swift */,
 				8F6B8E74298ED977008B4A54 /* Review.swift */,
 				8FF2E749297DB8FA0049E8C4 /* Place.swift */,
+				8F305E462990295A00FC66D5 /* Photo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F305E472990295A00FC66D5 /* Photo.swift in Sources */,
 				8F7AEEAD2976FE2700199392 /* SpotDetailView.swift in Sources */,
 				8FF2E74F297DB8FA0049E8C4 /* PlaceViewModel.swift in Sources */,
 				8F6B8E7B298EF269008B4A54 /* ReviewViewModel.swift in Sources */,
