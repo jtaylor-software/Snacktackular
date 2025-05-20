@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyBp6It1Wrb6e2Fbv2UpO2CK1vJCGMD4u5I</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1010121960453</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.bytes-random.Snacktackular</string>
+	<key>PROJECT_ID</key>
+	<string>snacktackular-a9fa0</string>
+	<key>STORAGE_BUCKET</key>
+	<string>snacktackular-a9fa0.firebasestorage.app</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1010121960453:ios:7b794afbd82f5522d6806c</string>
+</dict>
+</plist>
